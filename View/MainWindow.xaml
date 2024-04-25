@@ -11,9 +11,15 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <TabControl Grid.Row="0">
+        <TabControl Grid.Row="0"
+                    Margin="5">
             <TabItem Name="EmployeesTab"
-                     Header="Employees">
+                     Header="Employees"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     Width="100"
+                     Height="50"
+                     Margin="5">
                 <ListView ItemsSource="{Binding AllEmployees}">
                     <ListView.View>
                         <GridView>
@@ -28,7 +34,12 @@
                 </ListView>
             </TabItem>
             <TabItem Name="DepartmentsTab"
-                     Header="Departments">
+                     Header="Departments"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     Width="100"
+                     Height="50"
+                     Margin="5">
                 <ListView ItemsSource="{Binding AllDepartments}">
                     <ListView.View>
                         <GridView>
@@ -39,12 +50,17 @@
                 </ListView>
             </TabItem>
             <TabItem Name="PositionsTab"
-                     Width="auto"
-                     Header="Positions">
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     Height="50"
+                     Width="100"
+                     Header="Positions"
+                     Margin="5">
                 <ListView ItemsSource="{Binding AllPositions}">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Name"/>
+                            <GridViewColumn Header="Name"
+                                            Width="auto"/>
                             <GridViewColumn Header="Salary"/>
                             <GridViewColumn Header="Count of staff"/>
                             <GridViewColumn Header="Max number"/>
@@ -57,10 +73,19 @@
         <StackPanel Grid.Row="1"
                     Orientation="Horizontal"
                     HorizontalAlignment="Right">
-            <Button Content="1" Command="{Binding }"/>
-            <Button Content="2" Command="{Binding }"/>
-            <Button Content="3" Command="{Binding }"/>
+            <Button Content="Add new employee" 
+                    Command="{Binding OpenAddNewEmployeeWnd}"
+                    Width="auto"
+                    Margin="5"/>
+            <Button Content="Add new department" 
+                    Command="{Binding OpenAddNewDepartmentWnd}"
+                    Width="auto"
+                    Margin="5"/>
+            <Button Content="Add new position" 
+                    Command="{Binding OpenAddNewPositionWnd}"
+                    Width="auto"
+                    Margin="5"/>
         </StackPanel>
-        
+
     </Grid>
 </Window>

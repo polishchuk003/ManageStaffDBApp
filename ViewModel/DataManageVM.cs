@@ -23,7 +23,7 @@ namespace ManageStaffDBApp.ViewModel
             private set
             {
                 allDepartments = value;
-                NotifyPropertyChanged("AllDepartments");
+                NotifyPropertyChanged(nameof(AllDepartments));
             }
         }
 
@@ -57,6 +57,48 @@ namespace ManageStaffDBApp.ViewModel
             }
         }
 
+        private RelayCommand openAddNewDepartmentWnd;
+        public RelayCommand OpenAddNewDepartmentWnd
+        {
+            get
+            {
+                return openAddNewDepartmentWnd ?? new RelayCommand(obj =>
+                {
+                    OpenAddDepartmentWindowMethod();
+                }
+                );
+            }
+        }
+
+
+
+        private RelayCommand openAddNewPositionWnd;
+        public RelayCommand OpenAddNewPositionWnd
+        {
+            get
+            {
+                return openAddNewPositionWnd ?? new RelayCommand(obj =>
+                {
+                    OpenAddPositionWindowMethod();
+                }
+                );
+            }
+        }
+
+
+
+        private RelayCommand openAddNewEmployeeWnd;
+        public RelayCommand OpenAddNewEmployeeWnd
+        {
+            get
+            {
+                return openAddNewDepartmentWnd ?? new RelayCommand(obj =>
+                {
+                    OpenAddEmployeeWindowMethod();
+                }
+                );
+            }
+        }
 
         private void OpenAddDepartmentWindowMethod()
         {
