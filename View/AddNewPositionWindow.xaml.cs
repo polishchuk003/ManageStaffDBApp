@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ManageStaffDBApp.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,7 @@ namespace ManageStaffDBApp.View
         public AddNewPositionWindow()
         {
             InitializeComponent();
+            DataContext = new DataManageVM();
         }
     }
 }

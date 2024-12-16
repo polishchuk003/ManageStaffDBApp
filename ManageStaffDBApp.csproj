@@ -182,6 +182,9 @@
     <Compile Include="Model\DataWorker.cs" />
     <Compile Include="Model\RelayCommand.cs" />
     <Compile Include="ViewModel\DataManageVM.cs" />
+    <Compile Include="View\MessageView.xaml.cs">
+      <DependentUpon>MessageView.xaml</DependentUpon>
+    </Compile>
     <Page Include="View\AddNewDepartmentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -191,6 +194,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AddNewPositionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditDepartmentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditEmployeeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditPositionWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -211,10 +226,23 @@
     <Compile Include="View\AddNewPositionWindow.xaml.cs">
       <DependentUpon>AddNewPositionWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\EditDepartmentWindow.xaml.cs">
+      <DependentUpon>EditDepartmentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditEmployeeWindow.xaml.cs">
+      <DependentUpon>EditEmployeeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditPositionWindow.xaml.cs">
+      <DependentUpon>EditPositionWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\MessageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Department.cs" />

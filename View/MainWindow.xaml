@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ManageStaffDBApp.View"
+        xmlns:local="clr-namespace:ManageStaffDBApp.View" xmlns:viewmodel="clr-namespace:ManageStaffDBApp.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:DataManageVM}"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
@@ -20,15 +20,22 @@
                      Width="100"
                      Height="50"
                      Margin="5">
-                <ListView ItemsSource="{Binding AllEmployees}">
+                <ListView x:Name="ViewAllEmployees" 
+                          ItemsSource="{Binding AllEmployees}">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Name"/>
-                            <GridViewColumn Header="SurName"/>
-                            <GridViewColumn Header="Phone"/>
-                            <GridViewColumn Header="Salary"/>
-                            <GridViewColumn Header="Position"/>
-                            <GridViewColumn Header="Department"/>
+                            <GridViewColumn Header="Name"
+                                            DisplayMemberBinding="{Binding Path=Name}"/>
+                            <GridViewColumn Header="SurName"
+                                            DisplayMemberBinding="{Binding Path=SurName}"/>
+                            <GridViewColumn Header="Phone"
+                                            DisplayMemberBinding="{Binding Path=Phone}"/>
+                            <GridViewColumn Header="Salary"
+                                            DisplayMemberBinding="{Binding Path=EmployeePosition.Salary}"/>
+                            <GridViewColumn Header="Position"
+                                            DisplayMemberBinding="{Binding Path=EmployeePosition.Name}"/>
+                            <GridViewColumn Header="Department"
+                                            DisplayMemberBinding="{Binding Path=EmployeePosition.PositionDepartment.Name}"/>
                         </GridView>
                     </ListView.View>
                 </ListView>
@@ -40,11 +47,15 @@
                      Width="100"
                      Height="50"
                      Margin="5">
-                <ListView ItemsSource="{Binding AllDepartments}">
+                <ListView x:Name="ViewAllDepartments"   
+                          ItemsSource="{Binding AllDepartments}">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Name"/>
-                            <GridViewColumn Header="Count of positions"/>
+                            <GridViewColumn Header="Name"
+                                            Width="auto"
+                                            DisplayMemberBinding="{Binding Path=Name}"/>
+                            <GridViewColumn Header="Count of positions"
+                                            DisplayMemberBinding="{Binding Path=Positions.Count}"/>
                         </GridView>
                     </ListView.View>
                 </ListView>
@@ -56,15 +67,21 @@
                      Width="100"
                      Header="Positions"
                      Margin="5">
-                <ListView ItemsSource="{Binding AllPositions}">
+                <ListView x:Name="ViewAllPositions" 
+                          ItemsSource="{Binding AllPositions}">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Name"
-                                            Width="auto"/>
-                            <GridViewColumn Header="Salary"/>
-                            <GridViewColumn Header="Count of staff"/>
-                            <GridViewColumn Header="Max number"/>
-                            <GridViewColumn Header="Department"/>
+                                            Width="auto"
+                                            DisplayMemberBinding="{Binding Path=Name}"/>
+                            <GridViewColumn Header="Salary"
+                                            DisplayMemberBinding="{Binding Path=Salary}"/>
+                            <GridViewColumn Header="Count of staff"
+                                            DisplayMemberBinding="{Binding Path=EmployeesList.Count}"/>
+                            <GridViewColumn Header="Max number"
+                                            DisplayMemberBinding="{Binding Path=MaxNumber}"/>
+                            <GridViewColumn Header="Department"
+                                            DisplayMemberBinding="{Binding Path=PositionDepartment.Name}"/>
                         </GridView>
                     </ListView.View>
                 </ListView>

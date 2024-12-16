@@ -11,25 +11,23 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using ManageStaffDBApp.ViewModel;
 
 namespace ManageStaffDBApp.View
 {
     /// <summary>
-    /// Interaction logic for AddNewDepartmentWindow.xaml
+    /// Interaction logic for MessageView.xaml
     /// </summary>
-    public partial class AddNewDepartmentWindow : Window
+    public partial class MessageView : Window
     {
-        public AddNewDepartmentWindow()
+        public MessageView(string text)
         {
             InitializeComponent();
-            DataContext = new DataManageVM();
+            MessageText.Text = text;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //using (var db = new applica)
-
+            this.Close();
         }
     }
 }

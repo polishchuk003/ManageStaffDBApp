@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ManageStaffDBApp.ViewModel;
+
 
 namespace ManageStaffDBApp.View
 {
@@ -22,6 +24,7 @@ namespace ManageStaffDBApp.View
         public AddNewEmployeeWindow()
         {
             InitializeComponent();
+            DataContext = new DataManageVM();
         }
     }
 }

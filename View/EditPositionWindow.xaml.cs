@@ -11,25 +11,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using ManageStaffDBApp.ViewModel;
 
 namespace ManageStaffDBApp.View
 {
     /// <summary>
-    /// Interaction logic for AddNewDepartmentWindow.xaml
+    /// Interaction logic for EditPositionWindow.xaml
     /// </summary>
-    public partial class AddNewDepartmentWindow : Window
+    public partial class EditPositionWindow : Window
     {
-        public AddNewDepartmentWindow()
+        public EditPositionWindow()
         {
             InitializeComponent();
-            DataContext = new DataManageVM();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            //using (var db = new applica)
-
         }
     }
 }

@@ -47,7 +47,7 @@ namespace ManageStaffDBApp.Model
         // create department
         public static string CreateDepartment(string name)
         {
-            string result = "Вже існує!!";
+            var result = "Вже існує!!";
             using (var db = new ApplicationContext())
             {
                 bool checkIsExist = db.Departments.Any(el => el.Name == name);
@@ -63,7 +63,7 @@ namespace ManageStaffDBApp.Model
         }
         public static string CreatePosition(string name, decimal salary, int maxNumber, Department department)
         {
-            string result = "Вже існує!!";
+            var result = "Вже існує!!";
             using (var db = new ApplicationContext())
             {
                 bool checkIsExist = db.Positions.Any(el => el.Name == name && el.Salary == salary);
@@ -86,7 +86,7 @@ namespace ManageStaffDBApp.Model
 
         public static string CreateEmployee(string name, string surName, string phone, Position position)
         {
-            string result = "Вже існує!!";
+            var result = "Вже існує!!";
             using (var db = new ApplicationContext())
             {
                 bool checkIsExist = db.Employees.Any(el => el.Name == name && el.SurName == surName && el.Position == position);
@@ -112,7 +112,7 @@ namespace ManageStaffDBApp.Model
 
         public static string DeleteDepartment(Department department)
         {
-            string result = "Такого не існує!!";
+            var result = "Такого не існує!!";
             using (var db = new ApplicationContext())
             {
                 db.Departments.Remove(department);
@@ -124,7 +124,7 @@ namespace ManageStaffDBApp.Model
 
         public static string DeletePosition(Position position)
         {
-            string result = "Такого не існує!!";
+            var result = "Такого не існує!!";
             using (var db = new ApplicationContext())
             {
                 db.Positions.Remove(position);
@@ -136,7 +136,7 @@ namespace ManageStaffDBApp.Model
 
         public static string DeleteEmployee(Employee employee)
         {
-            string result = "Такого не існує!!";
+            var result = "Такого не існує!!";
             using (var db = new ApplicationContext())
             {
                 db.Employees.Remove(employee);
@@ -151,7 +151,7 @@ namespace ManageStaffDBApp.Model
 
         public static string EditDepartment(Department oldDepartment, string newName)
         {
-            string result = "Такого не існує!!";
+            var result = "Такого не існує!!";
             using (var db = new ApplicationContext())
             {
                 var department = db.Departments.FirstOrDefault(el => el.Id == oldDepartment.Id);
@@ -165,7 +165,7 @@ namespace ManageStaffDBApp.Model
 
         public static string EditPosition(Position oldPosition, string newName, int newMaxNumber, decimal newSalary, Department newDepartment)
         {
-            string result = "Такого не існує!!";
+            var result = "Такого не існує!!";
             using (var db = new ApplicationContext())
             {
                 var position = db.Positions.FirstOrDefault(el => el.Id == oldPosition.Id);
@@ -182,7 +182,7 @@ namespace ManageStaffDBApp.Model
 
         public static string EditEmployee(Employee oldEmployee, string newName, string newSurname, string newPhone, Position newPosition)
         {
-            string result = "Такого не існує!!";
+            var result = "Такого не існує!!";
             using (var db = new ApplicationContext())
             {
                 var employee = db.Employees.FirstOrDefault(el => el.Id == oldEmployee.Id);
@@ -196,6 +196,26 @@ namespace ManageStaffDBApp.Model
             return result;
         }
 
+
+        public static Position GetPositionById(int id)
+        {
+            using (var db = new ApplicationContext())
+            {
+                Position position = db.Positions.FirstOrDefault(p => p.Id == id);
+                return position;
+            }
+
+        }
+
+        public static Department GetDepartmentById(int id)
+        {
+            using (var db = new ApplicationContext())
+            {
+                Department d = db.Departments.FirstOrDefault(p => p.Id == id);
+                return d;
+            }
+
+        }
 
     }
 }
