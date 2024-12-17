@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ManageStaffDBApp.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ManageStaffDBApp.Model;
+
+using System.Text.RegularExpressions;
+
 
 namespace ManageStaffDBApp.View
 {
@@ -19,9 +24,14 @@ namespace ManageStaffDBApp.View
     /// </summary>
     public partial class EditPositionWindow : Window
     {
-        public EditPositionWindow()
+        public EditPositionWindow(Position positionToEdit)
         {
             InitializeComponent();
+            DataContext = new DataManageVM();
+            DataManageVM.SelectedPosition = positionToEdit;
+            DataManageVM.PositionName = positionToEdit.Name;
+            DataManageVM.PositionMaxNumber = positionToEdit.MaxNumber;
+            DataManageVM.PositionSalary = positionToEdit.Salary;
         }
     }
 }

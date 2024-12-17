@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ManageStaffDBApp.Model;
+using ManageStaffDBApp.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,15 @@ namespace ManageStaffDBApp.View
     /// </summary>
     public partial class EditEmployeeWindow : Window
     {
-        public EditEmployeeWindow()
+        public EditEmployeeWindow(Employee employeeToEdit)
         {
             InitializeComponent();
+            DataContext = new DataManageVM();
+            DataManageVM.SelectedEmployee = employeeToEdit;
+            DataManageVM.EmployeeName = employeeToEdit.Name;
+            DataManageVM.EmployeeSurName = employeeToEdit.SurName;
+            DataManageVM.EmployeePhone = employeeToEdit.Phone;
+            //DataManageVM.UserPosition = userToEdit.Position;
         }
     }
 }

@@ -13,6 +13,13 @@ namespace ManageStaffDBApp.Model
         public string Name { get; set; }
         public List<Position> Positions { get; set; }
 
-
+        [NotMapped]
+        public List<Position> DepartmentPositions
+        {
+            get
+            {
+                return DataWorker.GetAllPositionByDepartmentId(Id);
+            }
+        }
     }
 }

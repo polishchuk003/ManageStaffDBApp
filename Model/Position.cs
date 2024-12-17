@@ -27,5 +27,16 @@ namespace ManageStaffDBApp.Model
             }
 
         }
+
+
+        [NotMapped]
+        public List<Employee> PositionEmployees
+        {
+            get
+            {
+                return DataWorker.GetAllEmployeeByPositionId(Id);
+            }
+        }
+
     }
 }

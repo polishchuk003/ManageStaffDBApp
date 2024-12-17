@@ -217,5 +217,23 @@ namespace ManageStaffDBApp.Model
 
         }
 
+        public static List<Employee> GetAllEmployeeByPositionId(int id)
+        {
+            using (var db = new ApplicationContext())
+            {
+                List<Employee> employees = (from employee in GetAllEmployees() where employee.PositionId == id select employee).ToList();
+                return employees;
+            }
+        }
+
+        public static List<Position> GetAllPositionByDepartmentId(int id)
+        {
+            using (var db = new ApplicationContext())
+            {
+                List<Position> pos = (from employee in GetAllPositions() where employee.DepartmentId == id select employee).ToList();
+                return pos;
+            }
+        }
+
     }
 }

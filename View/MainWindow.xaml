@@ -12,16 +12,26 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <TabControl Grid.Row="0"
-                    Margin="5">
+                    Margin="5"
+                    SelectedItem="{Binding SelectedTabItem}">
             <TabItem Name="EmployeesTab"
-                     Header="Employees"
                      HorizontalAlignment="Center"
                      VerticalAlignment="Center"
                      Width="100"
                      Height="50"
                      Margin="5">
+                <TabItem.Header>
+                    <TextBlock Text="Staff"/>
+                </TabItem.Header>
+                <TabItem.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Edit" Command="{Binding OpenEditItemWnd}"/>
+                        <MenuItem Header="Delete" Command="{Binding DeleteItem}"/>
+                    </ContextMenu>
+                </TabItem.ContextMenu>
                 <ListView x:Name="ViewAllEmployees" 
-                          ItemsSource="{Binding AllEmployees}">
+                          ItemsSource="{Binding AllEmployees}"
+                          SelectedItem="{Binding SelectedEmployee}">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Name"
@@ -41,21 +51,30 @@
                 </ListView>
             </TabItem>
             <TabItem Name="DepartmentsTab"
-                     Header="Departments"
                      HorizontalAlignment="Center"
                      VerticalAlignment="Center"
                      Width="100"
                      Height="50"
                      Margin="5">
+                <TabItem.Header>
+                    <TextBlock Text="Departments"/>
+                </TabItem.Header>
+                <TabItem.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Edit" Command="{Binding OpenEditItemWnd}"/>
+                        <MenuItem Header="Delete" Command="{Binding DeleteItem}"/>
+                    </ContextMenu>
+                </TabItem.ContextMenu>
                 <ListView x:Name="ViewAllDepartments"   
-                          ItemsSource="{Binding AllDepartments}">
+                          ItemsSource="{Binding AllDepartments}"
+                          SelectedItem="{Binding SelectedDepartment}">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Name"
                                             Width="auto"
                                             DisplayMemberBinding="{Binding Path=Name}"/>
                             <GridViewColumn Header="Count of positions"
-                                            DisplayMemberBinding="{Binding Path=Positions.Count}"/>
+                                            DisplayMemberBinding="{Binding Path=DepartmentPositions.Count}"/>
                         </GridView>
                     </ListView.View>
                 </ListView>
@@ -65,10 +84,19 @@
                      VerticalAlignment="Center"
                      Height="50"
                      Width="100"
-                     Header="Positions"
                      Margin="5">
+                <TabItem.Header>
+                    <TextBlock Text="Positions"/>
+                </TabItem.Header>
+                <TabItem.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Edit" Command="{Binding OpenEditItemWnd}"/>
+                        <MenuItem Header="Delete" Command="{Binding DeleteItem}"/>
+                    </ContextMenu>
+                </TabItem.ContextMenu>
                 <ListView x:Name="ViewAllPositions" 
-                          ItemsSource="{Binding AllPositions}">
+                          ItemsSource="{Binding AllPositions}"
+                          SelectedItem="{Binding SelectedPosition}">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Name"
@@ -77,7 +105,7 @@
                             <GridViewColumn Header="Salary"
                                             DisplayMemberBinding="{Binding Path=Salary}"/>
                             <GridViewColumn Header="Count of staff"
-                                            DisplayMemberBinding="{Binding Path=EmployeesList.Count}"/>
+                                            DisplayMemberBinding="{Binding Path=PositionEmployees.Count}"/>
                             <GridViewColumn Header="Max number"
                                             DisplayMemberBinding="{Binding Path=MaxNumber}"/>
                             <GridViewColumn Header="Department"
